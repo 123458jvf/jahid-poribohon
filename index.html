@@ -10,24 +10,27 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--t);font-family:system-ui,"Noto Sans Bengali","Hind Siliguri",sans-serif;padding:0 0 40px}
 .w{max-width:780px;margin:auto;padding:0 14px}
-.hero{background:linear-gradient(135deg,var(--h1),var(--h2));color:#fff;padding:18px 0 70px;border-radius:0 0 28px 28px}
+.hero{background:radial-gradient(circle at 85% 10%,rgba(212,160,23,.28),transparent 45%),radial-gradient(circle at 5% 90%,rgba(96,165,250,.25),transparent 45%),linear-gradient(135deg,var(--h1),var(--h2));color:#fff;padding:18px 0 70px;border-radius:0 0 28px 28px}
 .top{display:flex;justify-content:space-between;align-items:center}
 .top h1{font-size:18px;margin:0;font-weight:700;letter-spacing:.2px}.top small{opacity:.7;font-size:12px}
 .ib{background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:10px;padding:8px 11px;cursor:pointer;font-size:15px;width:auto}
-.big{margin-top:18px}.big small{opacity:.75;font-size:13px}.big b{display:block;font-size:34px;margin-top:2px}
+.big{margin-top:18px}.big small{opacity:.75;font-size:13px}.big b{display:block;font-size:34px;margin-top:2px;text-shadow:0 2px 12px rgba(0,0,0,.35);letter-spacing:.3px}
 .tag{display:inline-block;background:rgba(212,160,23,.2);color:#fcd34d;border:1px solid rgba(212,160,23,.5);padding:2px 10px;border-radius:20px;font-size:11px;margin-top:8px}
 .pull{margin-top:-52px}
-.card{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--sh)}
-.card h2{font-size:14px;margin:0 0 10px;display:flex;align-items:center;gap:6px}
+.card{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--sh);animation:up .45s ease both;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,27,45,.12)}
+.card h2{font-size:14px;margin:0 0 12px;display:flex;align-items:center;gap:6px;padding-bottom:8px;border-bottom:1px dashed var(--b)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.k{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:12px;box-shadow:var(--sh);border-left:4px solid var(--p)}
+.k{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:12px;box-shadow:var(--sh);border-left:4px solid var(--p);animation:up .45s ease both;transition:transform .15s,box-shadow .15s}
+.k:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,27,45,.12)}
 .k.g{border-left-color:var(--g)}.k.r{border-left-color:var(--r)}.k.a{border-left-color:var(--a)}
-.k small{color:var(--m);font-size:12px;display:block}.k b{font-size:19px}
+.k small{color:var(--m);font-size:12px;display:block}.k b{font-size:21px;display:block;margin-top:2px}
 .g{color:var(--g)}.r{color:var(--r)}
 .ring{display:flex;align-items:center;gap:16px}.ring svg{flex:none}.ring p{margin:0;font-size:13px;color:var(--m);line-height:1.6}.ring p b{color:var(--t)}
 input,select,button{font:inherit;padding:10px;border:1px solid var(--b);border-radius:10px;width:100%;background:var(--bg);color:var(--t)}
 button.pr{background:linear-gradient(135deg,var(--h2),var(--h1));color:#fff;border:0;font-weight:600;cursor:pointer;margin-top:10px}
 button.s{background:var(--bg);width:auto;padding:7px 12px;cursor:pointer;font-size:13px}
+button{transition:transform .1s,filter .15s}button:active{transform:scale(.97)}button.pr:hover{filter:brightness(1.12)}
 label{font-size:12px;color:var(--m);display:block;margin:8px 0 3px}
 .f{display:flex;gap:8px}.f>*{flex:1}
 .tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}
@@ -39,230 +42,757 @@ tr.sel td{background:rgba(30,58,138,.09);font-weight:600}tbody tr{cursor:pointer
 .bar{height:8px;background:var(--b);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--g),var(--a))}
 .leg{font-size:12px;color:var(--m);display:flex;gap:14px;margin-top:6px}.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px}
 #pf{background:rgba(255,255,255,.15);color:#fff;border:0;font-weight:600}#pf option{color:#000}
-.hero{background:radial-gradient(circle at 85% 10%,rgba(212,160,23,.28),transparent 45%),radial-gradient(circle at 5% 90%,rgba(96,165,250,.25),transparent 45%),linear-gradient(135deg,var(--h1),var(--h2))}
-.big b{text-shadow:0 2px 12px rgba(0,0,0,.35);letter-spacing:.3px}
-@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.card,.k{animation:up .45s ease both;transition:transform .15s,box-shadow .15s}
-.k:hover,.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,27,45,.12)}
-.k b{font-size:21px;display:block;margin-top:2px}
-.card h2{padding-bottom:8px;border-bottom:1px dashed var(--b);margin-bottom:12px}
-button{transition:transform .1s,filter .15s}button:active{transform:scale(.97)}button.pr:hover{filter:brightness(1.12)}
-.ib:hover{background:rgba(255,255,255,.28)}
-.row:hover{background:rgba(30,58,138,.05)}
-.lg{display:inline-flex;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.18);align-items:center;justify-content:center;vertical-align:middle;overflow:hidden;font-size:20px}.lg img{width:100%;height:100%;object-fit:contain}
 #gate{position:fixed;inset:0;z-index:50;align-items:center;justify-content:center;padding:20px;background:radial-gradient(circle at 85% 10%,rgba(212,160,23,.3),transparent 45%),linear-gradient(135deg,var(--h1),var(--h2));overflow:auto}
 .gc{background:var(--c);border-radius:22px;padding:24px 20px;width:100%;max-width:380px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.35)}
 .gc h1{font-size:22px;margin:10px 0 4px}.gc p{color:var(--m);font-size:14px;margin:0 0 12px}
+.lg{display:inline-flex;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.18);align-items:center;justify-content:center;vertical-align:middle;overflow:hidden;font-size:20px}.lg img{width:100%;height:100%;object-fit:contain}
 .lg2{width:64px;height:64px;border-radius:18px;margin:auto;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}.lg2 img{width:100%;height:100%;object-fit:contain}
+#pf{min-width:0}
+#syncdot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#94a3b8;margin-right:5px}
+.syncok{color:var(--g)!important}.syncbad{color:var(--r)!important}
 body:not(.admin) .adm{display:none!important}body.admin .vw{display:none!important}
 .note{font-size:12px;color:var(--m);text-align:center;margin-top:16px}
+#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#0b1f3f;color:#fff;padding:9px 16px;border-radius:20px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:99;max-width:90%;text-align:center}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr}.top h1{font-size:16px}.ib{padding:8px}.ring{gap:10px}}
 </style>
 </head>
 <body>
+
 <script>
-/* ===== Firebase কনফিগ এখানে বসান (Firebase Console → Project settings → Web app) ===== */
-window.ADMIN_EMAIL="";/* ঐচ্ছিক: অ্যাডমিনের ইমেইল */
-window.FIREBASE_CONFIG={apiKey:"AIzaSyBXK9FQxmHimzmcyDoBYLS5Gi1FRrFTjTE",authDomain:"jahid-5a393.firebaseapp.com",projectId:"jahid-5a393",storageBucket:"jahid-5a393.firebasestorage.app",messagingSenderId:"455093989715",appId:"1:455093989715:web:5bf72d9cd8305bbb76b1a6"};
+/*
+  ============================
+  FIREBASE CONFIG
+  ============================
+  এই config তোমার দেওয়া Firebase project-এর।
+  ADMIN_EMAIL ফাঁকা থাকলে যেকোনো logged-in account admin হতে পারবে।
+  শুধু নিজের Gmail-কে admin করতে চাইলে এখানে Gmail বসাও।
+*/
+window.ADMIN_EMAIL="";
+window.FIREBASE_CONFIG={
+  apiKey:"AIzaSyBX9KQxmHimzmcyDoBYLS5Gi1FRrFTjTE",
+  authDomain:"jahid-5a393.firebaseapp.com",
+  projectId:"jahid-5a393",
+  storageBucket:"jahid-5a393.firebasestorage.app",
+  messagingSenderId:"455093989715",
+  appId:"1:455093989715:web:5bf72d9cd8305bbb76b1a6"
+};
 </script>
-<div id="toast" style="position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#0b1f3f;color:#fff;padding:9px 16px;border-radius:20px;font-size:13px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9"></div>
-<div id="gate" style="display:none"><div class="gc"><button class="s" style="float:right" onclick="closeLogin()">✕</button><div class="lg2" id="lg2">🚕</div><h1 id="gt">জাহিদ পরিবহন</h1><p id="gm">অ্যাডমিন লগইন<br><small>শুধু অ্যাডমিন হিসাব বদলাতে পারবেন</small></p>
-<div id="cform" style="display:none">
- <input id="cem" type="email" placeholder="ইমেইল" autocomplete="email">
- <input id="cpw" type="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" autocomplete="current-password" style="margin-top:8px">
- <div class="f" style="margin-top:8px"><button class="pr" id="cin" style="margin:0">🔐 লগইন</button><button class="s" id="cup">নতুন অ্যাকাউন্ট</button></div>
- <div class="f" style="margin-top:8px"><button class="s" id="crs">পাসওয়ার্ড ভুলে গেছেন?</button><button class="s" id="cgo">Google দিয়ে</button></div>
+
+<div id="toast"></div>
+
+<div id="gate" style="display:none">
+  <div class="gc">
+    <button class="s" style="float:right" onclick="closeLogin()">✕</button>
+    <div class="lg2" id="lg2">🚕</div>
+    <h1 id="gt">জাহিদ পরিবহন</h1>
+    <p id="gm">অ্যাডমিন লগইন<br><small>শুধু অ্যাডমিন হিসাব বদলাতে পারবেন</small></p>
+    <div id="cform">
+      <input id="cem" type="email" placeholder="ইমেইল" autocomplete="email">
+      <input id="cpw" type="password" placeholder="পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)" autocomplete="current-password" style="margin-top:8px">
+      <div class="f" style="margin-top:8px">
+        <button class="pr" id="cin" style="margin:0">🔐 লগইন</button>
+        <button class="s" id="cup">নতুন অ্যাকাউন্ট</button>
+      </div>
+      <div class="f" style="margin-top:8px">
+        <button class="s" id="crs">পাসওয়ার্ড ভুলে গেছেন?</button>
+        <button class="s" id="cgo">Google দিয়ে</button>
+      </div>
+    </div>
+  </div>
 </div>
-</div></div>
-<div class="hero"><div class="w">
- <div class="top"><div><h1><span id="lg" class="lg">🚕</span> <span id="ttl">জাহিদ পরিবহন</span></h1><small id="sub">গাড়ির হিসাব</small></div>
- <div class="f" style="flex:none"><button class="ib" onclick="refreshAll()" title="রিফ্রেশ">🔄</button><button class="ib adm" onclick="showSetup()">⚙️</button><button class="ib vw" onclick="openLogin()">🔐 অ্যাডমিন</button><button class="ib" onclick="theme()">🌓</button></div></div>
- <div class="f" style="margin-top:14px"><select id="pf" onchange="swPf(this.value)"></select><button class="ib adm" style="flex:none" onclick="newPf()">＋ নতুন</button></div>
- <div class="big"><small>মোট নিট লাভ</small><b id="net">৳ ০</b><span class="tag" id="tag"></span></div>
-</div></div>
+
+<div class="hero">
+  <div class="w">
+    <div class="top">
+      <div>
+        <h1><span id="lg" class="lg">🚕</span> <span id="ttl">জাহিদ পরিবহন</span></h1>
+        <small id="sub">গাড়ির হিসাব</small>
+      </div>
+      <div class="f" style="flex:none">
+        <button class="ib" onclick="refreshAll()" title="রিফ্রেশ">🔄</button>
+        <button class="ib adm" onclick="showSetup()">⚙️</button>
+        <button class="ib vw" onclick="openLogin()">🔐 অ্যাডমিন</button>
+        <button class="ib" onclick="theme()">🌓</button>
+      </div>
+    </div>
+    <div class="f" style="margin-top:14px">
+      <select id="pf" onchange="swPf(this.value)"></select>
+      <button class="ib adm" style="flex:none" onclick="newPf()">＋ নতুন</button>
+    </div>
+    <div class="big">
+      <small>মোট নিট লাভ</small>
+      <b id="net">৳ ০</b>
+      <span class="tag" id="tag"></span>
+    </div>
+  </div>
+</div>
 
 <div class="w pull">
+
 <div class="card adm" id="setup">
- <h2 style="justify-content:space-between"><span>⚙️ সেটিংস — গাড়ির তথ্য</span><button class="s" onclick="closeSet()">✕ বন্ধ</button></h2>
- <label>গাড়ির নাম</label><input id="name" placeholder="যেমন: CNG">
- <div class="f"><div><label>কেনার তারিখ</label><input id="pdate" type="date"></div><div><label>কেনার দাম (৳)</label><input id="price" type="number" inputmode="numeric"></div></div>
- <label>দৈনিক ভাড়া (৳)</label><input id="rate" type="number" inputmode="numeric" value="500">
- <button class="pr" onclick="saveSetup()">সেভ করুন</button>
- <button class="s" style="margin-top:8px;color:var(--r)" onclick="delPf()">🗑️ এই প্রোফাইল মুছুন</button>
- <div style="margin-top:14px;border-top:1px dashed var(--b);padding-top:12px"><h2>🎨 অ্যাপের নাম ও লোগো</h2>
-  <label>অ্যাপের নাম</label><input id="app" onchange="setApp()">
-  <div class="f" style="margin-top:8px"><button class="s" onclick="$('lgf').click()">🖼️ লোগো বদলান</button><button class="s" onclick="resetLogo()">↺ ডিফল্ট লোগো</button></div>
-  <input id="lgf" type="file" accept="image/*" style="display:none" onchange="setLogo(event)"></div>
- <div style="margin-top:14px;border-top:1px dashed var(--b);padding-top:12px"><h2>☁️ অ্যাকাউন্ট ও ক্লাউড সেভ</h2><div id="cst" style="font-size:13px;color:var(--m);margin-bottom:8px">ক্লাউড চালু করতে index.html-এর উপরে Firebase কনফিগ বসান</div>
-<button id="cbtn" class="pr" style="margin-top:0;display:none"></button></div>
+  <h2 style="justify-content:space-between">
+    <span>⚙️ সেটিংস — গাড়ির তথ্য</span>
+    <button class="s" onclick="closeSet()">✕ বন্ধ</button>
+  </h2>
+  <label>গাড়ির নাম</label><input id="name" placeholder="যেমন: CNG">
+  <div class="f">
+    <div><label>কেনার তারিখ</label><input id="pdate" type="date"></div>
+    <div><label>কেনার দাম (৳)</label><input id="price" type="number" inputmode="numeric"></div>
+  </div>
+  <label>দৈনিক ভাড়া (৳)</label><input id="rate" type="number" inputmode="numeric" value="500">
+  <button class="pr" onclick="saveSetup()">সেভ করুন</button>
+  <button class="s" style="margin-top:8px;color:var(--r)" onclick="delPf()">🗑️ এই প্রোফাইল মুছুন</button>
+
+  <div style="margin-top:14px;border-top:1px dashed var(--b);padding-top:12px">
+    <h2>🎨 অ্যাপের নাম ও লোগো</h2>
+    <label>অ্যাপের নাম</label><input id="app" onchange="setApp()">
+    <div class="f" style="margin-top:8px">
+      <button class="s" onclick="$('lgf').click()">🖼️ লোগো বদলান</button>
+      <button class="s" onclick="resetLogo()">↺ ডিফল্ট লোগো</button>
+    </div>
+    <input id="lgf" type="file" accept="image/*" style="display:none" onchange="setLogo(event)">
+  </div>
+
+  <div style="margin-top:14px;border-top:1px dashed var(--b);padding-top:12px">
+    <h2>☁️ অ্যাকাউন্ট ও ক্লাউড সেভ</h2>
+    <div id="cst" style="font-size:13px;color:var(--m);margin-bottom:8px">
+      <span id="syncdot"></span><span id="syncText">Firebase প্রস্তুত হচ্ছে...</span>
+    </div>
+    <button id="cbtn" class="pr" style="margin-top:0;display:none"></button>
+  </div>
 </div>
 
+<div class="card" id="emp" style="display:none;text-align:center;color:var(--m)">
+  এখনো কোনো হিসাব দেওয়া হয়নি
+</div>
 
-<div class="card" id="emp" style="display:none;text-align:center;color:var(--m)">এখনো কোনো হিসাব দেওয়া হয়নি</div>
 <div id="dash" style="display:none">
- <div class="grid">
-  <div class="k g"><small>💵 মোট জমা</small><b id="tin" class="g"></b></div>
-  <div class="k r"><small>🧰 মোট খরচ</small><b id="tout" class="r"></b></div>
-  <div class="k"><small>📈 চলতি মাসের লাভ</small><b id="cm"></b></div>
-  <div class="k a"><small>⚖️ গড় দৈনিক লাভ</small><b id="avg"></b></div>
- </div>
+  <div class="grid">
+    <div class="k g"><small>💵 মোট জমা</small><b id="tin" class="g"></b></div>
+    <div class="k r"><small>🧰 মোট খরচ</small><b id="tout" class="r"></b></div>
+    <div class="k"><small>📈 চলতি মাসের লাভ</small><b id="cm"></b></div>
+    <div class="k a"><small>⚖️ গড় দৈনিক লাভ</small><b id="avg"></b></div>
+  </div>
 
- <div class="card"><h2>🧾 খরচ আলাদা আলাদা (ধরন অনুযায়ী, সব মিলিয়ে)</h2><div id="cat"></div></div>
+  <div class="card">
+    <h2>🧾 খরচ আলাদা আলাদা (ধরন অনুযায়ী, সব মিলিয়ে)</h2>
+    <div id="cat"></div>
+  </div>
 
- <div class="card"><h2>💰 প্রতিদিনের জমা <span class="chip">অটো ৳৫০০ করে</span></h2>
-  <small style="color:var(--m);font-size:12px">প্রতিদিন নিজে নিজে জমা যোগ হয়। কোনো দিন কম/বেশি/না দিলে ✎ চাপুন (০ = আসেনি, খালি = অটো)।</small>
-  <div id="dl" style="max-height:360px;overflow:auto;margin-top:6px"></div></div>
+  <div class="card">
+    <h2>💰 প্রতিদিনের জমা <span class="chip">অটো ৳৫০০ করে</span></h2>
+    <small style="color:var(--m);font-size:12px">
+      প্রতিদিন নিজে নিজে জমা যোগ হয়। কোনো দিন কম/বেশি/না দিলে ✎ চাপুন
+      (০ = আসেনি, খালি = অটো)।
+    </small>
+    <div id="dl" style="max-height:360px;overflow:auto;margin-top:6px"></div>
+  </div>
 
- <div class="card"><h2>🎯 গাড়ির দাম উঠার অগ্রগতি</h2>
-  <div class="ring"><svg width="104" height="104" viewBox="0 0 104 104"><circle cx="52" cy="52" r="44" fill="none" stroke="var(--b)" stroke-width="10"/><circle id="rg" cx="52" cy="52" r="44" fill="none" stroke="var(--g)" stroke-width="10" stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="276.46" transform="rotate(-90 52 52)"/><text id="rt" x="52" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="var(--t)"></text></svg>
-  <p id="pt"></p></div></div>
+  <div class="card">
+    <h2>🎯 গাড়ির দাম উঠার অগ্রগতি</h2>
+    <div class="ring">
+      <svg width="104" height="104" viewBox="0 0 104 104">
+        <circle cx="52" cy="52" r="44" fill="none" stroke="var(--b)" stroke-width="10"/>
+        <circle id="rg" cx="52" cy="52" r="44" fill="none" stroke="var(--g)" stroke-width="10"
+          stroke-linecap="round" stroke-dasharray="276.46" stroke-dashoffset="276.46"
+          transform="rotate(-90 52 52)"/>
+        <text id="rt" x="52" y="58" text-anchor="middle" font-size="19" font-weight="700" fill="var(--t)"></text>
+      </svg>
+      <p id="pt"></p>
+    </div>
+  </div>
 
- <div class="card"><h2>📊 মাসভিত্তিক জমা বনাম খরচ</h2><div class="tw" id="ch"></div>
-  <div class="leg"><span><i style="background:var(--g)"></i>জমা</span><span><i style="background:var(--r)"></i>খরচ</span></div></div>
+  <div class="card">
+    <h2>📊 মাসভিত্তিক জমা বনাম খরচ</h2>
+    <div class="tw" id="ch"></div>
+    <div class="leg">
+      <span><i style="background:var(--g)"></i>জমা</span>
+      <span><i style="background:var(--r)"></i>খরচ</span>
+    </div>
+  </div>
 
- <div class="card"><h2>🗓️ মাসিক হিসাব</h2><div class="tw"><table><thead><tr><th>মাস</th><th>জমা</th><th>খরচ</th><th>লাভ</th></tr></thead><tbody id="mt"></tbody></table></div></div>
+  <div class="card">
+    <h2>🗓️ মাসিক হিসাব</h2>
+    <div class="tw">
+      <table>
+        <thead><tr><th>মাস</th><th>জমা</th><th>খরচ</th><th>লাভ</th></tr></thead>
+        <tbody id="mt"></tbody>
+      </table>
+    </div>
+  </div>
 
- <div class="card"><h2 id="mh"></h2>
-  <label class="adm">এই মাসে (ঐচ্ছিক) মোট কত দিন টাকা আসেনি? — নির্দিষ্ট দিন নিচের তালিকা থেকে বদলানো ভালো</label>
-  <input class="adm" id="off" type="number" min="0" inputmode="numeric" onchange="setOff()">
-  <small id="info" style="color:var(--m);font-size:12px"></small>
-  <div class="adm"><h2 style="margin-top:16px">➕ খরচ যোগ করুন</h2>
-  <div class="f"><input id="ed" type="date"><select id="et"><option>🔩 মালামাল</option><option>🛠️ মেরামত/মিস্ত্রি</option><option>⛽ গ্যাস/তেল</option><option>📄 কাগজপত্র/টোল</option><option>📦 অন্যান্য</option></select></div>
-  <div class="f" style="margin-top:8px"><input id="en" placeholder="কিসে খরচ"><input id="ea" type="number" inputmode="numeric" placeholder="টাকা"></div>
-  <button class="pr" onclick="addExp()">যোগ করুন</button></div>
-  <div id="el" style="margin-top:12px"></div></div>
+  <div class="card">
+    <h2 id="mh"></h2>
+    <label class="adm">এই মাসে (ঐচ্ছিক) মোট কত দিন টাকা আসেনি?</label>
+    <input class="adm" id="off" type="number" min="0" inputmode="numeric" onchange="setOff()">
+    <small id="info" style="color:var(--m);font-size:12px"></small>
 
- <div class="card adm"><h2>💾 ব্যাকআপ</h2><div class="f"><button class="s" onclick="exp_()">⬇️ ডাউনলোড</button><button class="s" onclick="document.getElementById('imp').click()">⬆️ রিস্টোর</button></div>
- <input id="imp" type="file" accept=".json" style="display:none" onchange="imp_(event)"></div>
+    <div class="adm">
+      <h2 style="margin-top:16px">➕ খরচ যোগ করুন</h2>
+      <div class="f">
+        <input id="ed" type="date">
+        <select id="et">
+          <option>🔩 মালামাল</option>
+          <option>🛠️ মেরামত/মিস্ত্রি</option>
+          <option>⛽ গ্যাস/তেল</option>
+          <option>📄 কাগজপত্র/টোল</option>
+          <option>📦 অন্যান্য</option>
+        </select>
+      </div>
+      <div class="f" style="margin-top:8px">
+        <input id="en" placeholder="কিসে খরচ">
+        <input id="ea" type="number" inputmode="numeric" placeholder="টাকা">
+      </div>
+      <button class="pr" onclick="addExp()">যোগ করুন</button>
+    </div>
+
+    <div id="el" style="margin-top:12px"></div>
+  </div>
+
+  <div class="card adm">
+    <h2>💾 ব্যাকআপ</h2>
+    <div class="f">
+      <button class="s" onclick="exp_()">⬇️ ডাউনলোড</button>
+      <button class="s" onclick="document.getElementById('imp').click()">⬆️ রিস্টোর</button>
+    </div>
+    <input id="imp" type="file" accept=".json" style="display:none" onchange="imp_(event)">
+  </div>
 </div>
 
-<div class="note">ডেটা শুধু আপনার ডিভাইসে সেভ থাকে — নিয়মিত ব্যাকআপ নিন</div>
+<div class="note">
+  ☁️ Gmail/Firebase Cloud Sync চালু থাকলে একই Gmail দিয়ে অন্য ফোনেও হিসাব পাওয়া যাবে।
+</div>
 </div>
 
 <script>
-var K='gari-hisab-v2',DB,S,cur=null,EDIT=!(window.FIREBASE_CONFIG&&FIREBASE_CONFIG.apiKey);
-document.body.classList.toggle('admin',EDIT);
-function setMode(on){EDIT=on;document.body.classList.toggle('admin',on);render()}
-function openLogin(){$('gm').style.display='block';$('cform').style.display='block';$('gate').style.display='flex'}
-function closeLogin(){$('gate').style.display='none'}
-function blank(){return {name:'',pdate:'',price:0,rate:500,off:{},day:{},exp:[]}}
-try{DB=JSON.parse(localStorage.getItem(K))}catch(e){}
-if(!DB){var o=null;try{o=JSON.parse(localStorage.getItem('gari-hisab-v1'))}catch(e){}DB={active:'p1',ts:0,profiles:{p1:o||blank()}}}
-S=DB.profiles[DB.active];
-function applyCloud(o){if(!o||!o.profiles)return;var a=DB&&DB.active;DB=o;if(!EDIT&&a&&DB.profiles[a])DB.active=a;S=DB.profiles[DB.active];cur=null;try{localStorage.setItem(K,JSON.stringify(DB))}catch(e){}render()}
-function swPf(id){DB.active=id;S=DB.profiles[id];cur=null;if(EDIT)save();render()}
-function newPf(){if(!EDIT)return;var n=prompt('নতুন প্রোফাইলের নাম (যেমন: দ্বিতীয় গাড়ি)');if(!n)return;var id='p'+Date.now();DB.profiles[id]=blank();DB.profiles[id].name=n;swPf(id)}
-function delPf(){if(!EDIT)return;if(Object.keys(DB.profiles).length<2){alert('অন্তত একটা প্রোফাইল থাকতে হবে');return}if(confirm('এই প্রোফাইলের সব হিসাব মুছে যাবে। ঠিক আছে?')){delete DB.profiles[DB.active];swPf(Object.keys(DB.profiles)[0])}}
-function pfList(){$('pf').innerHTML=Object.keys(DB.profiles).map(function(id){return '<option value="'+id+'"'+(id==DB.active?' selected':'')+'>'+esc(DB.profiles[id].name||'নামহীন গাড়ি')+'</option>'}).join('')}
-try{document.documentElement.dataset.theme=localStorage.getItem('gh-theme')||'light'}catch(e){}
-function theme(){var d=document.documentElement,n=d.dataset.theme=='dark'?'light':'dark';d.dataset.theme=n;try{localStorage.setItem('gh-theme',n)}catch(e){}}
-function closeSet(){if(S.pdate)$('setup').style.display='none'}
-function setApp(){if(!EDIT)return;DB.app=$('app').value.trim();save();render()}
-function resetLogo(){if(!EDIT)return;delete DB.logo;save();render()}
-function setLogo(ev){if(!EDIT)return;var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var c=document.createElement('canvas'),sc=Math.min(1,128/Math.max(im.width,im.height));c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);c.getContext('2d').drawImage(im,0,0,c.width,c.height);DB.logo=c.toDataURL('image/png');save();render();toast('🖼️ লোগো বদলেছে')};im.src=r.result};r.readAsDataURL(f)}
-function toast(m){var t=$('toast');t.textContent=m;t.style.opacity=1;setTimeout(function(){t.style.opacity=0},1800)}
-async function refreshAll(){render();if(window.cloudPull)await cloudPull();toast('🔄 রিফ্রেশ হয়েছে')}
-function save(){DB.ts=Date.now();try{localStorage.setItem(K,JSON.stringify(DB))}catch(e){}if(window.cloudPush)cloudPush(DB)}
+var K='gari-hisab-v3';
+var DB,S,cur=null;
+var EDIT=false;
+var AUTH_USER=null;
+
 function $(i){return document.getElementById(i)}
-function bn(n){return Math.round(n).toLocaleString('bn-BD')}
-function tk(n){return (n<0?'−':'')+'৳ '+bn(Math.abs(n))}
+function toast(m){
+  var t=$('toast'); t.textContent=m; t.style.opacity=1;
+  clearTimeout(window.__toast); window.__toast=setTimeout(function(){t.style.opacity=0},2200);
+}
+function blank(){return {name:'',pdate:'',price:0,rate:500,off:{},day:{},exp:[]}}
+function safeDB(o){
+  if(!o||typeof o!=='object') return null;
+  if(!o.profiles) return null;
+  Object.keys(o.profiles).forEach(function(id){
+    var p=o.profiles[id]||{};
+    p.name=p.name||'';p.pdate=p.pdate||'';p.price=+p.price||0;p.rate=+p.rate||500;
+    p.off=p.off||{};p.day=p.day||{};p.exp=Array.isArray(p.exp)?p.exp:[];
+    o.profiles[id]=p;
+  });
+  o.active=o.active&&o.profiles[o.active]?o.active:Object.keys(o.profiles)[0];
+  return o;
+}
+function makeInitialDB(){
+  var o=null;
+  try{o=JSON.parse(localStorage.getItem(K))}catch(e){}
+  if(safeDB(o)) return o;
+  try{o=JSON.parse(localStorage.getItem('gari-hisab-v2'))}catch(e){}
+  if(safeDB(o)) return o;
+  var old=null;
+  try{old=JSON.parse(localStorage.getItem('gari-hisab-v1'))}catch(e){}
+  return {active:'p1',ts:0,profiles:{p1:old||blank()}};
+}
+DB=makeInitialDB();
+S=DB.profiles[DB.active];
+
+function setMode(on){
+  EDIT=!!on;
+  document.body.classList.toggle('admin',EDIT);
+  render();
+}
+function openLogin(){$('gate').style.display='flex'}
+function closeLogin(){$('gate').style.display='none'}
+function closeSet(){if(S.pdate)$('setup').style.display='none'}
+
+function applyCloud(o){
+  o=safeDB(o);
+  if(!o) return;
+  var oldActive=DB&&DB.active;
+  DB=o;
+  if(oldActive&&DB.profiles[oldActive]) DB.active=oldActive;
+  S=DB.profiles[DB.active];
+  cur=null;
+  try{localStorage.setItem(K,JSON.stringify(DB))}catch(e){}
+  render();
+}
+
+function swPf(id){
+  if(!EDIT)return;
+  if(!DB.profiles[id])return;
+  DB.active=id;S=DB.profiles[id];cur=null;save();render();
+}
+function newPf(){
+  if(!EDIT)return;
+  var n=prompt('নতুন প্রোফাইলের নাম (যেমন: দ্বিতীয় গাড়ি)');
+  if(!n)return;
+  var id='p'+Date.now();DB.profiles[id]=blank();DB.profiles[id].name=n;
+  DB.active=id;S=DB.profiles[id];save();render();
+}
+function delPf(){
+  if(!EDIT)return;
+  if(Object.keys(DB.profiles).length<2){alert('অন্তত একটা প্রোফাইল থাকতে হবে');return}
+  if(confirm('এই প্রোফাইলের সব হিসাব মুছে যাবে। ঠিক আছে?')){
+    delete DB.profiles[DB.active];
+    DB.active=Object.keys(DB.profiles)[0];S=DB.profiles[DB.active];cur=null;save();render();
+  }
+}
+function pfList(){
+  $('pf').innerHTML=Object.keys(DB.profiles).map(function(id){
+    return '<option value="'+id+'"'+(id==DB.active?' selected':'')+'>'+
+      esc(DB.profiles[id].name||'নামহীন গাড়ি')+'</option>';
+  }).join('');
+}
+try{document.documentElement.dataset.theme=localStorage.getItem('gh-theme')||'light'}catch(e){}
+function theme(){
+  var d=document.documentElement,n=d.dataset.theme=='dark'?'light':'dark';
+  d.dataset.theme=n;try{localStorage.setItem('gh-theme',n)}catch(e){}
+}
+function setApp(){
+  if(!EDIT)return;
+  DB.app=$('app').value.trim()||'জাহিদ পরিবহন';save();render();
+}
+function resetLogo(){if(!EDIT)return;delete DB.logo;save();render()}
+function setLogo(ev){
+  if(!EDIT)return;
+  var f=ev.target.files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){
+    var im=new Image();
+    im.onload=function(){
+      var c=document.createElement('canvas'),sc=Math.min(1,128/Math.max(im.width,im.height));
+      c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);
+      c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+      DB.logo=c.toDataURL('image/png');save();render();toast('🖼️ লোগো বদলেছে');
+    };
+    im.src=r.result;
+  };
+  r.readAsDataURL(f);
+}
+async function refreshAll(){
+  render();
+  if(window.cloudPull) await window.cloudPull(true);
+  else toast('☁️ Cloud এখনো প্রস্তুত নয়');
+}
+function save(){
+  DB.ts=Date.now();
+  try{localStorage.setItem(K,JSON.stringify(DB))}catch(e){}
+  if(window.cloudPush&&AUTH_USER) window.cloudPush(DB);
+}
+function bn(n){return Math.round(Number(n)||0).toLocaleString('bn-BD')}
+function tk(n){n=Number(n)||0;return (n<0?'−':'')+'৳ '+bn(Math.abs(n))}
 function ym(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')}
 var MN=['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
 function mname(k){var p=k.split('-');return MN[+p[1]-1]+' '+(+p[0]).toLocaleString('bn-BD',{useGrouping:false})}
-function months(){var a=[],s=new Date(S.pdate),n=new Date(),d=new Date(s.getFullYear(),s.getMonth(),1);while(d<=n){a.push(ym(d));d.setMonth(d.getMonth()+1)}return a}
-function rng(k){var p=k.split('-'),y=+p[0],m=+p[1]-1,l=new Date(y,m+1,0).getDate(),f=1,s=new Date(S.pdate),n=new Date();if(ym(s)==k)f=s.getDate();if(ym(n)==k)l=n.getDate();return [f,l]}
+function months(){
+  var a=[],s=new Date(S.pdate),n=new Date();
+  var d=new Date(s.getFullYear(),s.getMonth(),1);
+  while(d<=n){a.push(ym(d));d.setMonth(d.getMonth()+1)}
+  return a;
+}
+function rng(k){
+  var p=k.split('-'),y=+p[0],m=+p[1]-1,l=new Date(y,m+1,0).getDate(),f=1,s=new Date(S.pdate),n=new Date();
+  if(ym(s)==k)f=s.getDate();
+  if(ym(n)==k)l=n.getDate();
+  return [f,l];
+}
 function days(k){var r=rng(k);return Math.max(0,r[1]-r[0]+1)}
 function dk(k,d){return k+'-'+('0'+d).slice(-2)}
-function dsum(k){var r=rng(k),t=0;for(var d=r[0];d<=r[1];d++){var v=(S.day||{})[dk(k,d)];t+=v!=null?v:S.rate}return t}
-function inc(k){return Math.max(0,dsum(k)-(+S.off[k]||0)*S.rate)}
-function out(k){return S.exp.filter(function(e){return e.date.slice(0,7)==k}).reduce(function(a,e){return a+e.amt},0)}
+function dsum(k){
+  var r=rng(k),t=0;
+  for(var d=r[0];d<=r[1];d++){
+    var v=(S.day||{})[dk(k,d)];
+    t+=v!=null?Number(v):Number(S.rate||500);
+  }
+  return t;
+}
+function inc(k){return Math.max(0,dsum(k)-(Number(S.off[k])||0)*Number(S.rate||500))}
+function out(k){return S.exp.filter(function(e){return String(e.date).slice(0,7)==k}).reduce(function(a,e){return a+(Number(e.amt)||0)},0)}
 function showSetup(){$('setup').style.display='block';window.scrollTo(0,0)}
-function saveSetup(){if(!EDIT)return;if(!$('pdate').value||!$('price').value){alert('কেনার তারিখ ও দাম দিন');return}
- S.name=$('name').value;S.pdate=$('pdate').value;S.price=+$('price').value;S.rate=+$('rate').value||500;save();cur=null;render()}
-function setOff(){if(!EDIT)return;S.off[cur]=Math.max(0,+$('off').value||0);save();render()}
-function addExp(){if(!EDIT)return;var a=+$('ea').value;if(!a||!$('ed').value){alert('তারিখ ও টাকা দিন');return}
- S.exp.push({id:Date.now(),date:$('ed').value,type:$('et').value,note:$('en').value,amt:a});$('ea').value='';$('en').value='';cur=$('ed').value.slice(0,7);save();render()}
-function del(id){if(!EDIT)return;if(confirm('মুছবেন?')){S.exp=S.exp.filter(function(e){return e.id!=id});save();render()}}
+function saveSetup(){
+  if(!EDIT)return;
+  if(!$('pdate').value||!$('price').value){alert('কেনার তারিখ ও দাম দিন');return}
+  S.name=$('name').value;S.pdate=$('pdate').value;S.price=+$('price').value;S.rate=+$('rate').value||500;
+  save();cur=null;render();toast('✅ গাড়ির তথ্য সেভ হয়েছে');
+}
+function setOff(){
+  if(!EDIT)return;
+  S.off[cur]=Math.max(0,+$('off').value||0);save();render();
+}
+function addExp(){
+  if(!EDIT)return;
+  var a=+$('ea').value;
+  if(!a||!$('ed').value){alert('তারিখ ও টাকা দিন');return}
+  S.exp.push({id:Date.now(),date:$('ed').value,type:$('et').value,note:$('en').value,amt:a});
+  $('ea').value='';$('en').value='';cur=$('ed').value.slice(0,7);save();render();toast('✅ খরচ যোগ হয়েছে');
+}
+function del(id){
+  if(!EDIT)return;
+  if(confirm('মুছবেন?')){S.exp=S.exp.filter(function(e){return e.id!=id});save();render()}
+}
 var TY=[['🔩','মালামাল'],['🛠️','মেরামত/মিস্ত্রি'],['⛽','গ্যাস/তেল'],['📄','কাগজপত্র/টোল'],['📦','অন্যান্য']];
-function norm(t){t=(t||'').replace(/^[^\u0980-\u09FF]+/,'').trim();return TY.some(function(x){return x[1]==t})?t:'অন্যান্য'}
+function norm(t){
+  t=(t||'').replace(/^[^\u0980-\u09FF]+/,'').trim();
+  return TY.some(function(x){return x[1]==t})?t:'অন্যান্য';
+}
 function en(v){return String(v).replace(/[০-৯]/g,function(c){return '০১২৩৪৫৬৭৮৯'.indexOf(c)})}
-function dayEdit(key){if(!EDIT)return;S.day=S.day||{};var cv=S.day[key]!=null?S.day[key]:S.rate;
- var v=prompt('এই দিনে কত টাকা এসেছে?\n(০ = আসেনি, খালি রাখলে অটো ৳'+S.rate+')',cv);if(v===null)return;v=en(v).trim();
- if(v==='')delete S.day[key];else{var n=+v;if(isNaN(n)||n<0){alert('সঠিক সংখ্যা দিন');return}S.day[key]=n}save();render()}
-function erow(e){return '<div class="row"><span>'+(e.note?esc(e.note):norm(e.type))+'<small>'+e.date.slice(8)+'/'+e.date.slice(5,7)+'/'+e.date.slice(0,4)+'</small></span><span><b>'+tk(e.amt)+'</b> <button class="s adm" onclick="del('+e.id+')">✕</button></span></div>'}
+function dayEdit(key){
+  if(!EDIT)return;
+  S.day=S.day||{};
+  var cv=S.day[key]!=null?S.day[key]:S.rate;
+  var v=prompt('এই দিনে কত টাকা এসেছে?\n(০ = আসেনি, খালি রাখলে অটো ৳'+S.rate+')',cv);
+  if(v===null)return;
+  v=en(v).trim();
+  if(v==='')delete S.day[key];
+  else{
+    var n=+v;if(isNaN(n)||n<0){alert('সঠিক সংখ্যা দিন');return}
+    S.day[key]=n;
+  }
+  save();render();
+}
+function erow(e){
+  return '<div class="row"><span>'+(e.note?esc(e.note):norm(e.type))+
+    '<small>'+e.date.slice(8)+'/'+e.date.slice(5,7)+'/'+e.date.slice(0,4)+'</small></span>'+
+    '<span><b>'+tk(e.amt)+'</b> <button class="s adm" onclick="del('+e.id+')">✕</button></span></div>';
+}
 function pick(k){cur=k;render()}
-function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function chart(ms){var w=Math.max(320,ms.length*60),h=150,mx=1;
- ms.forEach(function(k){mx=Math.max(mx,inc(k),out(k))});
- var s='<svg width="'+w+'" height="'+(h+22)+'" viewBox="0 0 '+w+' '+(h+22)+'">';
- ms.forEach(function(k,i){var x=i*60+10,a=inc(k)/mx*h,b=out(k)/mx*h;
-  s+='<rect x="'+x+'" y="'+(h-a)+'" width="20" height="'+a+'" rx="4" fill="var(--g)"/><rect x="'+(x+22)+'" y="'+(h-b)+'" width="20" height="'+b+'" rx="4" fill="var(--r)"/><text x="'+(x+21)+'" y="'+(h+15)+'" text-anchor="middle" font-size="11" fill="var(--m)">'+MN[+k.slice(5)-1].slice(0,3)+'</text>'});
- return s+'</svg>'}
+function esc(s){return String(s??'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function chart(ms){
+  var w=Math.max(320,ms.length*60),h=150,mx=1;
+  ms.forEach(function(k){mx=Math.max(mx,inc(k),out(k))});
+  var s='<svg width="'+w+'" height="'+(h+22)+'" viewBox="0 0 '+w+' '+(h+22)+'">';
+  ms.forEach(function(k,i){
+    var x=i*60+10,a=inc(k)/mx*h,b=out(k)/mx*h;
+    s+='<rect x="'+x+'" y="'+(h-a)+'" width="20" height="'+a+'" rx="4" fill="var(--g)"/>'+
+       '<rect x="'+(x+22)+'" y="'+(h-b)+'" width="20" height="'+b+'" rx="4" fill="var(--r)"/>'+
+       '<text x="'+(x+21)+'" y="'+(h+15)+'" text-anchor="middle" font-size="11" fill="var(--m)">'+MN[+k.slice(5)-1].slice(0,3)+'</text>';
+  });
+  return s+'</svg>';
+}
+
 function render(){
- $('name').value=S.name;$('pdate').value=S.pdate;$('price').value=S.price||'';$('rate').value=S.rate;
- var an=DB.app||'জাহিদ পরিবহন';$('ttl').textContent=an;document.title=an;$('app').value=an;
- $('sub').textContent=(S.name?S.name+' • ':'')+'গাড়ির হিসাব'+(EDIT?'':' • 👁️ শুধু দেখা');
- $('lg').innerHTML=DB.logo?'<img src="'+DB.logo+'" alt="">':'🚕';$('lg2').innerHTML=$('lg').innerHTML;$('gt').textContent=an;
- pfList();$('emp').style.display=(!S.pdate&&!EDIT)?'block':'none';if(!S.pdate){$('dash').style.display='none';$('setup').style.display='block';return}
- $('dash').style.display='block';$('setup').style.display='none';
- var ms=months();if(!cur||ms.indexOf(cur)<0)cur=ms[ms.length-1];
- var ti=0,to=0,h='',td=0;
- ms.forEach(function(k){var i=inc(k),o=out(k);ti+=i;to+=o;td+=days(k);
-  h+='<tr class="'+(k==cur?'sel':'')+'" onclick="pick(\''+k+'\')"><td>'+mname(k)+'</td><td>'+bn(i)+'</td><td>'+bn(o)+'</td><td class="'+(i-o>=0?'g':'r')+'">'+bn(i-o)+'</td></tr>'});
- var net=ti-to,last=ms[ms.length-1];
- $('mt').innerHTML=h;$('ch').innerHTML=chart(ms);
- $('tin').textContent=tk(ti);$('tout').textContent=tk(to);
- $('net').textContent=tk(net);
- $('cm').textContent=tk(inc(last)-out(last));$('cm').className=inc(last)-out(last)>=0?'g':'r';
- $('avg').textContent=tk(td?net/td:0);
- var pct=S.price?Math.max(0,Math.min(100,net/S.price*100)):0,left=S.price-net;
- $('tag').textContent=left>0?('দাম উঠেছে '+bn(pct)+'%'):'✅ গাড়ির দাম উঠে গেছে';
- $('rg').style.strokeDashoffset=276.46*(1-pct/100);$('rt').textContent=bn(pct)+'%';
- $('pt').innerHTML=left>0?('গাড়ির দাম <b>'+tk(S.price)+'</b><br>এখনো বাকি <b>'+tk(left)+'</b>'+(net>0&&td?'<br>এই হারে আরও প্রায় <b>'+bn(left/(net/td))+' দিন</b>':'')):'🎉 গাড়ির দাম উঠে গেছে!<br>এখন থেকে পুরোটাই লাভ।';
- $('mh').textContent='📅 '+mname(cur)+' — বিস্তারিত';$('off').value=S.off[cur]||0;
- $('info').textContent='এই মাসে মোট জমা: '+tk(inc(cur))+' ('+bn(days(cur))+' দিন, প্রতিদিন অটো ৳'+bn(S.rate)+' ধরে)';
- var dh='';
- ms.slice().reverse().forEach(function(k){var r=rng(k);
-  dh+='<div style="font-size:12px;color:var(--m);padding:10px 0 2px;font-weight:600">'+mname(k)+' — '+tk(inc(k))+'</div>';
-  for(var d=r[1];d>=r[0];d--){var key=dk(k,d),ov=S.day&&S.day[key]!=null,am=ov?S.day[key]:S.rate;
-   dh+='<div class="row"><span>'+bn(d)+'/'+bn(+k.slice(5))+' <span class="chip">'+(ov?(am==0?'আসেনি':'বদলানো'):'অটো')+'</span></span><span><b class="'+(am>0?'g':'r')+'">'+tk(am)+'</b> <button class="s adm" onclick="dayEdit(\''+key+'\')">✎</button></span></div>'}});
- $('dl').innerHTML=dh;
- var ct={},cs=0;S.exp.forEach(function(e){var n=norm(e.type);ct[n]=(ct[n]||0)+e.amt;cs+=e.amt});
- $('cat').innerHTML=TY.map(function(x){var v=ct[x[1]]||0;return '<div style="margin-bottom:10px"><div class="row" style="border:0;padding:0 0 4px"><span>'+x[0]+' '+x[1]+'</span><b>'+tk(v)+'</b></div><div class="bar"><i style="width:'+(cs?v/cs*100:0)+'%"></i></div></div>'}).join('')+'<div class="row" style="border-top:1px solid var(--b);margin-top:4px"><b>মোট খরচ</b><b class="r">'+tk(cs)+'</b></div>';
- if(!$('ed').value||$('ed').value.slice(0,7)!=cur){var t=new Date();$('ed').value=ym(t)==cur?t.toISOString().slice(0,10):cur+'-01'}
- var l=S.exp.filter(function(e){return e.date.slice(0,7)==cur}),gh='';
- TY.forEach(function(x){var g=l.filter(function(e){return norm(e.type)==x[1]}).sort(function(a,b){return a.date<b.date?1:-1});if(!g.length)return;
-  gh+='<div class="row" style="background:var(--bg);padding:8px;border-radius:8px;margin-top:8px;border:0"><b>'+x[0]+' '+x[1]+'</b><b>'+tk(g.reduce(function(a,e){return a+e.amt},0))+'</b></div>'+g.map(erow).join('')});
- $('el').innerHTML=gh||'<small style="color:var(--m)">এই মাসে কোনো খরচ নেই</small>'}
-function exp_(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(DB)],{type:'application/json'}));a.download='gari-hisab-backup.json';a.click()}
-function imp_(ev){if(!EDIT)return;var r=new FileReader();r.onload=function(){try{var o=JSON.parse(r.result);if(o.profiles){DB=o}else{var id='p'+Date.now();DB.profiles[id]=o;DB.active=id}S=DB.profiles[DB.active];save();cur=null;render()}catch(e){alert('ফাইল ঠিক নেই')}};r.readAsText(ev.target.files[0])}
+  S=DB.profiles[DB.active]||blank();
+  $('name').value=S.name||'';
+  $('pdate').value=S.pdate||'';
+  $('price').value=S.price||'';
+  $('rate').value=S.rate||500;
+
+  var an=DB.app||'জাহিদ পরিবহন';
+  $('ttl').textContent=an;document.title=an;$('app').value=an;
+  $('sub').textContent=(S.name?S.name+' • ':'')+'গাড়ির হিসাব'+(EDIT?'':' • 👁️ শুধু দেখা');
+  $('lg').innerHTML=DB.logo?'<img src="'+DB.logo+'" alt="">':'🚕';
+  $('lg2').innerHTML=$('lg').innerHTML;$('gt').textContent=an;
+  pfList();
+
+  $('emp').style.display=(!S.pdate&&!EDIT)?'block':'none';
+  if(!S.pdate){
+    $('dash').style.display='none';
+    if(EDIT)$('setup').style.display='block';
+    return;
+  }
+
+  $('dash').style.display='block';
+  if(!EDIT)$('setup').style.display='none';
+
+  var ms=months();
+  if(!ms.length)return;
+  if(!cur||ms.indexOf(cur)<0)cur=ms[ms.length-1];
+
+  var ti=0,to=0,h='',td=0;
+  ms.forEach(function(k){
+    var i=inc(k),o=out(k);ti+=i;to+=o;td+=days(k);
+    h+='<tr class="'+(k==cur?'sel':'')+'" onclick="pick(\''+k+'\')">'+
+      '<td>'+mname(k)+'</td><td>'+bn(i)+'</td><td>'+bn(o)+'</td>'+
+      '<td class="'+(i-o>=0?'g':'r')+'">'+bn(i-o)+'</td></tr>';
+  });
+
+  var net=ti-to,last=ms[ms.length-1];
+  $('mt').innerHTML=h;$('ch').innerHTML=chart(ms);
+  $('tin').textContent=tk(ti);$('tout').textContent=tk(to);$('net').textContent=tk(net);
+  $('cm').textContent=tk(inc(last)-out(last));$('cm').className=inc(last)-out(last)>=0?'g':'r';
+  $('avg').textContent=tk(td?net/td:0);
+
+  var pct=S.price?Math.max(0,Math.min(100,net/S.price*100)):0,left=S.price-net;
+  $('tag').textContent=left>0?('দাম উঠেছে '+bn(pct)+'%'):'✅ গাড়ির দাম উঠে গেছে';
+  $('rg').style.strokeDashoffset=276.46*(1-pct/100);$('rt').textContent=bn(pct)+'%';
+  $('pt').innerHTML=left>0?('গাড়ির দাম <b>'+tk(S.price)+'</b><br>এখনো বাকি <b>'+tk(left)+'</b>'+
+    (net>0&&td?'<br>এই হারে আরও প্রায় <b>'+bn(left/(net/td))+' দিন</b>':'')):
+    '🎉 গাড়ির দাম উঠে গেছে!<br>এখন থেকে পুরোটাই লাভ!';
+
+  $('mh').textContent='📅 '+mname(cur)+' — বিস্তারিত';
+  $('off').value=S.off[cur]||0;
+  $('info').textContent='এই মাসে মোট জমা: '+tk(inc(cur))+' ('+bn(days(cur))+' দিন, প্রতিদিন অটো ৳'+bn(S.rate)+' ধরে)';
+
+  var dh='';
+  ms.slice().reverse().forEach(function(k){
+    var r=rng(k);
+    dh+='<div style="font-size:12px;color:var(--m);padding:10px 0 2px;font-weight:600">'+mname(k)+' — '+tk(inc(k))+'</div>';
+    for(var d=r[1];d>=r[0];d--){
+      var key=dk(k,d),ov=S.day&&S.day[key]!=null,am=ov?S.day[key]:S.rate;
+      dh+='<div class="row"><span>'+bn(d)+'/'+bn(+k.slice(5))+
+        ' <span class="chip">'+(ov?(am==0?'আসেনি':'বদলানো'):'অটো')+
+        '</span></span><span><b class="'+(am>0?'g':'r')+'">'+tk(am)+
+        '</b> <button class="s adm" onclick="dayEdit(\''+key+'\')">✎</button></span></div>';
+    }
+  });
+  $('dl').innerHTML=dh;
+
+  var ct={},cs=0;
+  S.exp.forEach(function(e){var n=norm(e.type);ct[n]=(ct[n]||0)+e.amt;cs+=Number(e.amt)||0});
+  $('cat').innerHTML=TY.map(function(x){
+    var v=ct[x[1]]||0;
+    return '<div style="margin-bottom:10px"><div class="row" style="border:0;padding:0 0 4px">'+
+      '<span>'+x[0]+' '+x[1]+'</span><b>'+tk(v)+'</b></div>'+
+      '<div class="bar"><i style="width:'+(cs?v/cs*100:0)+'%"></i></div></div>';
+  }).join('')+
+  '<div class="row" style="border-top:1px solid var(--b);margin-top:4px"><b>মোট খরচ</b><b class="r">'+tk(cs)+'</b></div>';
+
+  if(!$('ed').value||$('ed').value.slice(0,7)!=cur){
+    var t=new Date();$('ed').value=ym(t)==cur?t.toISOString().slice(0,10):cur+'-01';
+  }
+
+  var l=S.exp.filter(function(e){return e.date.slice(0,7)==cur}),gh='';
+  TY.forEach(function(x){
+    var g=l.filter(function(e){return norm(e.type)==x[1]}).sort(function(a,b){return a.date<b.date?1:-1});
+    if(!g.length)return;
+    gh+='<div class="row" style="background:var(--bg);padding:8px;border-radius:8px;margin-top:8px;border:0">'+
+      '<b>'+x[0]+' '+x[1]+'</b><b>'+tk(g.reduce(function(a,e){return a+e.amt},0))+'</b></div>'+
+      g.map(erow).join('');
+  });
+  $('el').innerHTML=gh||'<small style="color:var(--m)">এই মাসে কোনো খরচ নেই</small>';
+}
+
+function exp_(){
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([JSON.stringify(DB)],{type:'application/json'}));
+  a.download='jahid-poribohon-backup.json';a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
+}
+function imp_(ev){
+  if(!EDIT)return;
+  var f=ev.target.files[0];if(!f)return;
+  var r=new FileReader();
+  r.onload=function(){
+    try{
+      var o=JSON.parse(r.result);
+      if(!safeDB(o)){alert('ব্যাকআপ ফাইল ঠিক নেই');return}
+      DB=o;S=DB.profiles[DB.active];save();cur=null;render();toast('✅ ব্যাকআপ রিস্টোর হয়েছে');
+    }catch(e){alert('ফাইল ঠিক নেই')}
+  };
+  r.readAsText(f);
+}
 render();
 </script>
+
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged,signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {getFirestore,doc,getDoc,setDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged,
+  signInWithEmailAndPassword,createUserWithEmailAndPassword,sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getFirestore,doc,getDoc,setDoc,serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 const cfg=window.FIREBASE_CONFIG;
+
 if(cfg&&cfg.apiKey){
- const app=initializeApp(cfg),auth=getAuth(app),db=getFirestore(app),ref=doc(db,'public','hisab');let t=null;
- const g=i=>document.getElementById(i),st=m=>g('cst').textContent=m;
- const E={'auth/invalid-credential':'ইমেইল বা পাসওয়ার্ড ভুল','auth/email-already-in-use':'এই ইমেইলে অ্যাকাউন্ট আগেই আছে — লগইন করুন','auth/weak-password':'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন','auth/invalid-email':'ইমেইল ঠিক নেই','auth/missing-password':'পাসওয়ার্ড দিন','auth/network-request-failed':'ইন্টারনেট নেই','auth/operation-not-allowed':'Firebase-এ Email/Password চালু করা হয়নি','auth/admin-restricted-operation':'নতুন অ্যাকাউন্ট খোলা বন্ধ আছে'};
- const msg=e=>alert(E[e.code]||('সমস্যা: '+e.code));
- const em=()=>g('cem').value.trim(),pw=()=>g('cpw').value;
- g('cin').onclick=()=>signInWithEmailAndPassword(auth,em(),pw()).catch(msg);
- g('cup').onclick=()=>createUserWithEmailAndPassword(auth,em(),pw()).catch(msg);
- g('crs').onclick=()=>{if(!em()){alert('আগে ইমেইল লিখুন');return}sendPasswordResetEmail(auth,em()).then(()=>alert('পাসওয়ার্ড রিসেটের লিংক ইমেইলে পাঠানো হয়েছে')).catch(msg)};
- g('cgo').onclick=()=>signInWithPopup(auth,new GoogleAuthProvider()).catch(msg);
- window.cloudPush=d=>{if(!window.EDIT)return;clearTimeout(t);t=setTimeout(async()=>{try{await setDoc(ref,{json:JSON.stringify(d),ts:d.ts});st('☁️ ক্লাউডে সেভ হয়েছে')}catch(e){st('⚠️ সেভ হয়নি — Firestore রুল ও অ্যাডমিন ইমেইল দেখুন')}},800)};
- window.cloudPull=async()=>{try{const s=await getDoc(ref);if(s.exists()&&(!window.EDIT||s.data().ts>DB.ts)){applyCloud(JSON.parse(s.data().json));st('☁️ ক্লাউড থেকে নতুন হিসাব এসেছে')}else st('☁️ হিসাব আপ-টু-ডেট')}catch(e){st('⚠️ হিসাব আনা যায়নি')}};
- onAuthStateChanged(auth,async u=>{
-  const adm=!!u&&(!window.ADMIN_EMAIL||(u.email||'').toLowerCase()==window.ADMIN_EMAIL.toLowerCase());
-  if(u&&!adm){alert('এই অ্যাকাউন্টে সম্পাদনার অনুমতি নেই');signOut(auth);return}
-  setMode(adm);const b=g('cbtn');
-  if(adm){g('gate').style.display='none';b.style.display='block';b.textContent='লগআউট ('+(u.email||'')+')';b.onclick=()=>signOut(auth);st('সিঙ্ক হচ্ছে...')}else{b.style.display='none'}
-  try{const s=await getDoc(ref);
-   if(s.exists()&&(!adm||s.data().ts>DB.ts)){applyCloud(JSON.parse(s.data().json));st('☁️ ক্লাউড থেকে হিসাব এসেছে')}
-   else if(adm&&DB.ts>0){window.cloudPush(DB)}}
-  catch(e){st('⚠️ হিসাব আনা যায়নি — ইন্টারনেট ও Firestore রুল দেখুন')}});
+  const app=initializeApp(cfg);
+  const auth=getAuth(app);
+  const db=getFirestore(app);
+
+  let timer=null;
+  let syncing=false;
+
+  const g=i=>document.getElementById(i);
+  const setStatus=(m,good)=>{
+    const d=g('syncdot'),t=g('syncText');
+    if(!d||!t)return;
+    t.textContent=m;
+    d.className=good?'syncok':'';
+  };
+
+  const E={
+    'auth/invalid-credential':'ইমেইল বা পাসওয়ার্ড ভুল',
+    'auth/email-already-in-use':'এই ইমেইলে অ্যাকাউন্ট আগেই আছে — লগইন করুন',
+    'auth/weak-password':'পাসওয়ার্ড কমপক্ষে ৬ অক্ষর দিন',
+    'auth/invalid-email':'ইমেইল ঠিক নেই',
+    'auth/missing-password':'পাসওয়ার্ড দিন',
+    'auth/network-request-failed':'ইন্টারনেট নেই',
+    'auth/operation-not-allowed':'Firebase-এ Email/Password চালু করা হয়নি',
+    'auth/admin-restricted-operation':'নতুন অ্যাকাউন্ট খোলা বন্ধ আছে',
+    'permission-denied':'Firestore Security Rules অনুমতি দিচ্ছে না'
+  };
+  const msg=e=>alert(E[e.code]||('সমস্যা: '+(e.code||e.message||e)));
+
+  const em=()=>g('cem').value.trim();
+  const pw=()=>g('cpw').value;
+
+  g('cin').onclick=()=>signInWithEmailAndPassword(auth,em(),pw()).catch(msg);
+  g('cup').onclick=()=>createUserWithEmailAndPassword(auth,em(),pw()).catch(msg);
+  g('crs').onclick=()=>{
+    if(!em()){alert('আগে ইমেইল লিখুন');return}
+    sendPasswordResetEmail(auth,em()).then(
+      ()=>alert('পাসওয়ার্ড রিসেটের লিংক ইমেইলে পাঠানো হয়েছে')
+    ).catch(msg);
+  };
+  g('cgo').onclick=()=>signInWithPopup(auth,new GoogleAuthProvider()).catch(msg);
+
+  /*
+    নতুন Cloud structure:
+    users/{UID}/data/hisab
+
+    পুরোনো structure:
+    public/hisab
+
+    Login-এর পরে:
+    1) UID-এর data থাকলে সেটি নেয়
+    2) না থাকলে পুরোনো public/hisab নেয়
+    3) পুরোনো data পেলে UID-এর জায়গায় migrate করে
+  */
+  function userRef(uid){
+    return doc(db,'users',uid,'data','hisab');
+  }
+  const oldRef=doc(db,'public','hisab');
+
+  window.cloudPush=async function(data){
+    if(!AUTH_USER||!window.EDIT)return;
+    if(syncing)return;
+    clearTimeout(timer);
+
+    timer=setTimeout(async function(){
+      try{
+        syncing=true;
+        setStatus('ক্লাউডে সেভ হচ্ছে...',false);
+        await setDoc(userRef(AUTH_USER.uid),{
+          json:JSON.stringify(data),
+          ts:Number(data.ts)||Date.now(),
+          email:AUTH_USER.email||'',
+          updatedAt:serverTimestamp()
+        });
+        setStatus('☁️ ক্লাউডে সেভ হয়েছে',true);
+      }catch(e){
+        console.error(e);
+        setStatus('⚠️ ক্লাউডে সেভ হয়নি — Firestore Rules দেখুন',false);
+      }finally{
+        syncing=false;
+      }
+    },600);
+  };
+
+  async function readDocSafe(ref){
+    try{return await getDoc(ref)}
+    catch(e){console.error(e);throw e}
+  }
+
+  window.cloudPull=async function(force){
+    if(!AUTH_USER)return;
+    try{
+      setStatus('☁️ হিসাব খোঁজা হচ্ছে...',false);
+
+      const current=await readDocSafe(userRef(AUTH_USER.uid));
+
+      if(current.exists()){
+        const d=current.data();
+        if(d.json){
+          const cloud=JSON.parse(d.json);
+          if(force||!DB.ts||Number(d.ts||0)>Number(DB.ts||0)){
+            applyCloud(cloud);
+            setStatus('☁️ Cloud থেকে পুরোনো হিসাব এসেছে',true);
+            toast('✅ সব Cloud হিসাব পাওয়া গেছে');
+          }else{
+            setStatus('☁️ হিসাব আপ-টু-ডেট',true);
+          }
+          return;
+        }
+      }
+
+      /*
+        UID document নেই:
+        পুরোনো public/hisab document খুঁজে migration করি।
+      */
+      const old=await readDocSafe(oldRef);
+
+      if(old.exists()&&old.data().json){
+        const d=old.data();
+        const oldData=JSON.parse(d.json);
+
+        applyCloud(oldData);
+
+        await setDoc(userRef(AUTH_USER.uid),{
+          json:JSON.stringify(oldData),
+          ts:Number(d.ts||oldData.ts||Date.now()),
+          email:AUTH_USER.email||'',
+          migratedFrom:'public/hisab',
+          migratedAt:serverTimestamp(),
+          updatedAt:serverTimestamp()
+        });
+
+        setStatus('✅ পুরোনো হিসাব নতুন Gmail-এ যুক্ত হয়েছে',true);
+        toast('✅ পুরোনো সব হিসাব ফিরে এসেছে');
+        return;
+      }
+
+      /*
+        Firebase-এ cloud data নেই।
+        একই ফোনের localStorage-এ data থাকলে সেটি upload করি।
+      */
+      if(DB&&DB.ts>0){
+        await setDoc(userRef(AUTH_USER.uid),{
+          json:JSON.stringify(DB),
+          ts:Number(DB.ts)||Date.now(),
+          email:AUTH_USER.email||'',
+          createdFrom:'local-device',
+          updatedAt:serverTimestamp()
+        });
+        setStatus('☁️ এই ফোনের হিসাব Cloud-এ সেভ হয়েছে',true);
+        return;
+      }
+
+      setStatus('☁️ কোনো পুরোনো Cloud হিসাব পাওয়া যায়নি',false);
+
+    }catch(e){
+      console.error(e);
+      setStatus('⚠️ হিসাব আনা যায়নি — Firestore Rules/Internet দেখুন',false);
+    }
+  };
+
+  onAuthStateChanged(auth,async function(u){
+    const adm=!!u&&(!window.ADMIN_EMAIL||(u.email||'').toLowerCase()==window.ADMIN_EMAIL.toLowerCase());
+
+    if(u&&!adm){
+      alert('এই অ্যাকাউন্টে সম্পাদনার অনুমতি নেই');
+      await signOut(auth);
+      return;
+    }
+
+    AUTH_USER=u||null;
+    setMode(adm);
+
+    const b=g('cbtn');
+
+    if(adm){
+      g('gate').style.display='none';
+      b.style.display='block';
+      b.textContent='লগআউট ('+(u.email||'')+')';
+      b.onclick=()=>signOut(auth);
+      setStatus('☁️ আপনার হিসাব যাচাই হচ্ছে...',false);
+
+      await window.cloudPull(false);
+    }else{
+      b.style.display='none';
+      setStatus('🔐 Gmail দিয়ে Admin Login করুন',false);
+    }
+  });
+}else{
+  document.body.classList.toggle('admin',false);
+  setStatus=function(){};
 }
 </script>
 </body>
