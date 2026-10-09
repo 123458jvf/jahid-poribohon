@@ -444,6 +444,32 @@ git push origin main`,`git-commands`),className:`px-2.5 py-1 rounded-lg bg-blue-
   .fixed.inset-0.flex.items-center.justify-center > * { padding: 1rem !important; border-radius: 1.25rem !important; }
 }
 </style>
+<style id="zp-sticky-fix">
+/* #root-এ overflow-x:hidden থাকায় sticky হেডার আটকে থাকত না; clip দিলে স্ক্রল-কন্টেইনার তৈরি হয় না */
+#root { overflow-x: clip !important; overflow-y: visible !important; }
+html, body { overflow-y: visible; }
+header.sticky.top-0 { position: -webkit-sticky; position: sticky !important; top: 0 !important; z-index: 40; }
+</style>
+<style id="zp-statusbar-fix">
+/* হেডার যেন মোবাইলের স্ট্যাটাস বারের (সময়/নেটওয়ার্ক/ব্যাটারি) নিচে ঢুকে না যায় */
+header.sticky.top-0 { padding-top: var(--zp-safe-top, env(safe-area-inset-top, 0px)) !important; }
+</style>
+<script>
+(function(){try{
+  var ua=navigator.userAgent||'';
+  var app=/; wv\)|Capacitor/i.test(ua)||!!window.Capacitor||
+    (window.matchMedia&&(matchMedia('(display-mode: standalone)').matches||matchMedia('(display-mode: fullscreen)').matches));
+  function run(){
+    var p=document.createElement('div');
+    p.style.cssText='position:fixed;top:0;left:0;visibility:hidden;padding-top:env(safe-area-inset-top,0px)';
+    (document.body||document.documentElement).appendChild(p);
+    var v=parseFloat(getComputedStyle(p).paddingTop)||0;
+    p.parentNode.removeChild(p);
+    if(app&&v<1)document.documentElement.style.setProperty('--zp-safe-top','30px');
+  }
+  if(document.body)run();else document.addEventListener('DOMContentLoaded',run);
+}catch(e){}})();
+</script>
   <script src="/_aistudio-iframe.js?v=6634132a"></script></head>
   <body>
     <div id="root"></div>
